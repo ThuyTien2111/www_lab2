@@ -16,6 +16,7 @@ public class ProductPrice {
     private String note;
     @Column(name="Price")
     private double price;
+    @Id
     @ManyToOne
     @JoinColumn(name="ProductID")
     private Product product;

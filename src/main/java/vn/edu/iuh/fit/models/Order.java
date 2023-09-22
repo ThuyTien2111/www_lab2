@@ -25,6 +25,10 @@ public class Order {
     public Order() {
     }
 
+    public Order(long order_id) {
+        this.order_id = order_id;
+    }
+
     public Order(long order_id, LocalDateTime orderDate, Employee employee, Customer customer) {
         this.order_id = order_id;
         this.orderDate = orderDate;

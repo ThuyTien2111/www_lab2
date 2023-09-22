@@ -24,6 +24,8 @@
                 <div class="card-body">
                     <%--                    <h5 class="card-title"><%= product.getName() %></h5>--%>
                     <h5 class="card-title">Product Name 1</h5>
+                        <img src="https://thetechpanda.com/wp-content/uploads/2013/06/toshiba-kirabook.jpg" alt="Image of Product 1" width="300">
+
 
                     <%--    <p class="card-text">Price: <%= product.getPrice() %> VND</p>--%>
                     <p class="card-text">Price: 100000 VND</p>

@@ -23,6 +23,10 @@ public class Customer {
     public Customer() {
     }
 
+    public Customer(long id) {
+        this.id = id;
+    }
+
     public Customer(long id, String address, String email, String name, String phone) {
         this.id = id;
         this.address = address;
