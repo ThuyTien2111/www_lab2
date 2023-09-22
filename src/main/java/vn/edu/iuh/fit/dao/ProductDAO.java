@@ -82,7 +82,7 @@ public class ProductDAO {
         }
         return false;
     }
-    public boolean activeEmp(long id)
+    public boolean activeProduct(long id)
     {
         EntityTransaction tr=em.getTransaction();
         tr.begin();
