@@ -1,4 +1,4 @@
-package vn.edu.iuh.fit.entities;
+package vn.edu.iuh.fit.models;
 
 import jakarta.json.bind.annotation.JsonbDateFormat;
 import jakarta.persistence.*;
@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="Order")
+@Table(name="Orders")
 public class Order {
     @Id
     @Column(name="OrderID")

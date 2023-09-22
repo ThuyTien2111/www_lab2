@@ -1,4 +1,4 @@
-package vn.edu.iuh.fit.entities;
+package vn.edu.iuh.fit.models;
 
 import jakarta.persistence.*;
 
@@ -11,7 +11,7 @@ public class ProductImage {
     @Column(name="Alternative",columnDefinition = "nvarchar(1000)")
 
     private String alternative;
-    @Column(name="Alternative",columnDefinition = "nvarchar(500)")
+    @Column(name="Path",columnDefinition = "nvarchar(500)")
     private String path;
 
     @ManyToOne
