@@ -7,8 +7,18 @@ import java.time.LocalDateTime;
 
 public class OrderDemo {
     public static void main(String[] args) {
-        OrderDAO orderDAO= new OrderDAO();
-        System.out.println(orderDAO.add(new Order(13, LocalDateTime.now(), new Employee(1), new Customer(2)),
-                new OrderDetail(new Order(13), new Product(1), "", 3)));
-    }
+        OrderDAO orderDAO = new OrderDAO();
+        System.out.println(orderDAO.add(new Order(50, LocalDateTime.now(), new Employee(1), new Customer(2)),
+                new OrderDetail(new Order(50), new Product(2), "", 2)));
+        /*orderDAO.getOrderByDate().entrySet().forEach(entry -> {
+            System.out.println(entry.getKey() + "\nSo luong: " + entry.getValue());
+        });*/
+       /* orderDAO.getOrderByMonth().entrySet().forEach(entry -> {
+            System.out.println(entry.getKey() + "\nSo luong: " + entry.getValue());
+        });*/
+        /*orderDAO.getOrderByEmployeeForMonth().entrySet().forEach(entry -> {
+            System.out.println(entry.getKey() + "\nSo luong: " + entry.getValue());
+        });*/
+    };
+
 }

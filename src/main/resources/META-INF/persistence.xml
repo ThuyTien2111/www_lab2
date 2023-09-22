@@ -12,6 +12,10 @@
         <class>vn.edu.iuh.fit.models.Product</class>
         <class>vn.edu.iuh.fit.models.ProductImage</class>
         <class>vn.edu.iuh.fit.models.ProductPrice</class>
+        <class>vn.edu.iuh.fit.convert.OrderByDateDTO</class>
+        <class>vn.edu.iuh.fit.convert.OrderByMonthDTO</class>
+        <class>vn.edu.iuh.fit.convert.OrderByEmployeeMonthDTO</class>
+
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
