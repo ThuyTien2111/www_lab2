@@ -1,5 +1,6 @@
 package vn.edu.iuh.fit.service;
 
+import vn.edu.iuh.fit.convert.ProductPricePath;
 import vn.edu.iuh.fit.dao.ProductDAO;
 import vn.edu.iuh.fit.models.Employee;
 import vn.edu.iuh.fit.models.Product;
@@ -35,4 +36,9 @@ public class ProductService {
         return productDAO.activeProduct(id);
     }
 
-}
+    public List<ProductPricePath> getProductPricePaths(){
+        return productDAO.getProductPricePaths();
+    }
+
+
+    }

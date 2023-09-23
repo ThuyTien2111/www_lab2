@@ -1,5 +1,6 @@
 package vn.edu.iuh.fit.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.json.bind.annotation.JsonbDateFormat;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,7 +18,8 @@ public class Employee {
     @Column(name="Address",columnDefinition = "nvarchar(500)")
     private String address;
     @Column(name="DateOfBirth")
-    @JsonbDateFormat(value = "yyyy-MM-dd")
+    //@JsonbDateFormat(value = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dob;
     @Column(name="Email",columnDefinition = "nvarchar(500)")
     private String email;

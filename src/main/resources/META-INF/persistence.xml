@@ -15,6 +15,8 @@
         <class>vn.edu.iuh.fit.convert.OrderByDateDTO</class>
         <class>vn.edu.iuh.fit.convert.OrderByMonthDTO</class>
         <class>vn.edu.iuh.fit.convert.OrderByEmployeeMonthDTO</class>
+        <class>vn.edu.iuh.fit.convert.ProductPricePath</class>
+
 
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>

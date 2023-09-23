@@ -2,11 +2,17 @@ package vn.edu.iuh.fit.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import vn.edu.iuh.fit.convert.OrderByDateDTO;
+import vn.edu.iuh.fit.convert.ProductPricePath;
 import vn.edu.iuh.fit.db.Connection;
 import vn.edu.iuh.fit.models.Employee;
 import vn.edu.iuh.fit.models.Product;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ProductDAO {
     private EntityManager em;
@@ -99,4 +105,43 @@ public class ProductDAO {
         }
         return false;
     }
+
+    public List<ProductPricePath> getProductPricePaths(){
+        List<ProductPricePath> list= new ArrayList<>();
+        EntityTransaction transaction= em.getTransaction();
+        transaction.begin();
+        try {
+            String nativeQuery= "SELECT\n" +
+                    "    product.ProductID,\n" +
+                    "\t product.Name ,\n" +
+                    "    productprice.Price ,\n" +
+                    "    productimage.Path \n" +
+                    "FROM\n" +
+                    "    product \n" +
+                    "INNER JOIN\n" +
+                    "    productprice AS productprice ON product.ProductID = productprice.ProductID\n" +
+                    "INNER JOIN\n" +
+                    "    productimage AS productimage ON product.ProductID = productimage.ProductID\n" +
+                    "WHERE\n" +
+                    "    productprice.PriceDate = (\n" +
+                    "        SELECT\n" +
+                    "            MAX(PriceDate)\n" +
+                    "        FROM\n" +
+                    "            productprice\n" +
+                    "        WHERE\n" +
+                    "            ProductID = product.ProductID\n" +
+                    "    );";
+            list= em.createNativeQuery(nativeQuery, ProductPricePath.class).getResultList();
+            transaction.commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            // TODO: handle exception
+        }
+        return list;
+
+    }
+
+
 }
