@@ -54,6 +54,7 @@ public class OrderDAO {
         }
         return false;
     }
+
     public Map<LocalDateTime,Long> getOrderByDate(){
         Map<LocalDateTime,Long> map= new HashMap<>();
         EntityTransaction transaction= em.getTransaction();

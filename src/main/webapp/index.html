@@ -11,12 +11,32 @@
 <div class="product-list" id="product-list">
     <!-- Danh sách sản phẩm sẽ được hiển thị ở đây -->
 </div>
+<div class="pagination" id="pagination">
+    <!-- Phân trang sẽ được hiển thị ở đây -->
+</div>
 <div class="cart">
     <h2>Giỏ hàng</h2>
     <ul id="cart-items">
         <!-- Danh sách sản phẩm trong giỏ hàng sẽ được hiển thị ở đây -->
     </ul>
     <button id="checkout-button">Thanh toán</button>
+</div>
+<div id="order-form" style="display: none;">
+    <h3>Thông tin sản phẩm:</h3>
+    <p>Tên sản phẩm: <span id="product-name"></span></p>
+    <p>Giá: <span id="product-price"></span></p>
+    <input type="hidden" id="product-id-input">
+    <label for="quantity-input">Số lượng:</label>
+    <input type="number" id="quantity-input">
+    <label for="note-input">Mã đơn hàng:</label>
+    <input type="text" id="order-id-input">
+    <label for="note-input">Ghi chú:</label>
+    <input type="text" id="note-input">
+    <label for="note-input">Mã khách hàng:</label>
+    <input type="text" id="customer-id-input">
+    <label for="note-input">Mã nhân viên:</label>
+    <input type="text" id="emp-id-input">
+    <button id="order-button">Thêm vào giỏ hàng</button>
 </div>
 <script src="product.js"></script>
 </body>
