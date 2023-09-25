@@ -18,6 +18,5 @@
         <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
 
-    <!-- Ánh xạ servlet này đến đường dẫn "/login" -->
 
 </web-app>

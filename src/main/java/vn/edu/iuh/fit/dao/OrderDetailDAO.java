@@ -41,4 +41,27 @@ public class OrderDetailDAO {
         return totalPrice;
 
     }
+    public List<OrderDetail> getOrderDetailByOrderID(long orderID){
+        List<OrderDetail> list= new ArrayList<>();
+        EntityTransaction transaction= em.getTransaction();
+        transaction.begin();
+        try {
+            String nativeQuery= "SELECT * \n" +
+                    "FROM orderdetail\n" +
+                    "WHERE OrderID=?";
+            Query query = em.createNativeQuery(nativeQuery, OrderDetail.class);
+            query.setParameter(1, orderID);
+            list=query.getResultList();
+
+            transaction.commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            // TODO: handle exception
+        }
+        return list;
+
+    }
+
 }

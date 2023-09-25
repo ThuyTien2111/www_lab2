@@ -1,0 +1,42 @@
+/* Reset some default styles */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background color and text color for the whole page */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Style the header */
+h1 {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style the container for order details */
+#order-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+/* Style the total price */
+#total-price {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Add some spacing to the page */
+p {
+    margin: 20px 0;
+    text-align: center;
+}

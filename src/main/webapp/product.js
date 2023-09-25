@@ -89,7 +89,7 @@ function addToCart(productID, quantity, orderID, customerID, empID, note) {
     // Lấy thông tin sản phẩm dựa vào productID để cập nhật giỏ hàng
     let selectedProduct = products.find(product => product.productID === productID);
     // Lấy ngày hiện tại
-    const currentDate = new Date().toISOString();
+    let currentDate = new Date().toISOString();
     // Gọi API backend để thêm đơn hàng
     fetch('http://localhost:8080/lab2/api/orders/add', {
         method: 'POST',
@@ -119,36 +119,26 @@ function addToCart(productID, quantity, orderID, customerID, empID, note) {
             }
         })
     }).then(data => {
-            // Thêm sản phẩm vào giỏ hàng
-            cart.push({
-                productID: productID,
-                name: selectedProduct.name,
-                quantity: quantity,
-                orderID: orderID,
-                customerID: customerID,
-                empID: empID,
-                note: note,
-                // Thêm dữ liệu sản phẩm khác nếu cần
-            });
+        // Thêm sản phẩm vào giỏ hàng
+        cart.push({
+            productID: productID,
+            name: selectedProduct.name,
+            quantity: quantity,
+            orderID: orderID,
+            customerID: customerID,
+            empID: empID,
+            note: note,
+            // Thêm dữ liệu sản phẩm khác nếu cần
+        });
 
-            // Gọi hàm cập nhật giao diện giỏ hàng
-            updateCartDisplay();
-        })
+        // Gọi hàm cập nhật giao diện giỏ hàng
+        updateCartDisplay();
+    })
         .catch(error => {
             console.error('Lỗi khi thêm đơn hàng:', error);
         });
 
 }
-
-
-/*// Thêm sản phẩm vào giỏ hàng
-function addToCart(productId) {
-    const product = products.find(p => p.productID === productId);
-    if (product) {
-        cart.push(product);
-        updateCartDisplay();
-    }
-}*/
 
 
 // Hàm cập nhật giao diện giỏ hàng
@@ -165,9 +155,29 @@ function updateCartDisplay() {
     }
 }
 
-/*// Xử lý sự kiện khi ấn nút Thanh toán
-document.getElementById('checkout-button').addEventListener('click', () => {
-    // Chuyển sang trang thanh toán (bạn cần viết trang thanh toán riêng)
-    window.location.href = 'thanh-toan.html';
-});*!/*/
+
+function checkout() {
+    //Lấy id của order
+    let orderId = document.getElementById('order-id-input').value;
+    // Gọi API backend để lấy danh sách orderdetail của đơn hàng
+    fetch(`http://localhost:8080/lab2/api/orders/${orderId}/detail`) //Có giá trị truyền vào thì 0 được dùng nháy đơn '' mà phải dùng ``
+        .then(response => response.json())
+        .then(orderDetails => {
+            // Lấy tổng tiền của đơn hàng
+            fetch(`http://localhost:8080/lab2/api/orders/${orderId}/totalPrice`)
+                .then(response => response.text())
+                .then(totalPrice => {
+                    // Mã hóa dữ liệu JSON
+                    let encodedOrderDetails = encodeURIComponent(JSON.stringify(orderDetails));
+                    // Chuyển đến trang thanhtoan.html và truyền thông tin đơn hàng và tổng tiền
+                    window.location.href = `thanhtoan.html?orderDetails=${encodedOrderDetails}&totalPrice=${totalPrice}`;
+                })
+                .catch(error => console.error('Lỗi khi lấy tổng tiền đơn hàng:', error));
+        })
+        .catch(error => console.error('Lỗi khi lấy danh sách orderdetail:', error));
+}
+
+
+
+
 

@@ -1,5 +1,6 @@
 package vn.edu.iuh.fit.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.json.bind.annotation.JsonbDateFormat;
 import jakarta.persistence.*;
 
@@ -13,6 +14,7 @@ public class Order {
     private long order_id;
     @Column(name="OrderDate")
     @JsonbDateFormat(value = "yyyy-MM-dd")
+ //   @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") =>nguy hiem
     private LocalDateTime orderDate;
 
     @ManyToOne
