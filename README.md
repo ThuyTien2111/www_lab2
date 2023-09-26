@@ -82,4 +82,4 @@ Nếu bạn muốn đóng góp vào dự án hoặc báo cáo lỗi, vui lòng t
 
 Dự án này được phát triển bởi [Thuy Tien] 
 
-Cảm ơn bạn đã sử dụng dự án của chúng tôi!
+Cảm ơn bạn đã sử dụng dự án của tôi!
