@@ -6,6 +6,6 @@ public class OrderDetailDemo {
     public static void main(String[] args) {
         OrderDetailDAO orderDetailDAO= new OrderDetailDAO();
      //   System.out.println(orderDetailDAO.calcTotalPrice(13));
-        orderDetailDAO.getOrderDetailByOrderID(13).forEach(odd->System.out.println(odd.toString()));
+        orderDetailDAO.getOrderDetailByOrderID(102).forEach(odd->System.out.println(odd.toString()));
     }
 }

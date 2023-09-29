@@ -45,7 +45,7 @@ public class OrderDAO {
             price= (double) pp.getPrice();
             OrderDetail ord=new OrderDetail(orderDetail.getOrder(), orderDetail.getProduct(),
                     orderDetail.getNote(),price, orderDetail.getQuantity());
-            em.persist(ord);
+            em.merge(ord);
             tr.commit();
             return true;
         } catch (Exception e) {
