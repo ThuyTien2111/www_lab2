@@ -112,7 +112,13 @@
             %>
         </ul>
     </div>
-</div>
+    <!-- Thêm nút Vào chế độ quản trị viên và căn trái nút -->
+    <!-- Thêm nút Vào chế độ quản trị viên và căn phải nút -->
+    <div class="row justify-content-end mt-4">
+        <div class="col-md-4 text-right">
+            <a href="employee.jsp" class="btn btn-warning">Vào chế độ quản trị viên</a>
+        </div>
+    </div></div>
 
 <!-- Hiển thị danh sách sản phẩm trong giỏ hàng -->
 <div class="cart">
