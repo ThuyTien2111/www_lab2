@@ -81,7 +81,7 @@
                 <img src="<%= product.getPath() %>" alt="Hình ảnh sản phẩm" class="card-img-top product-image">
                 <div class="card-body">
                     <h5 class="card-title"><%= product.getName() %></h5>
-                    <p class="card-text"><%= product.getPrice() %></p>
+                    <p class="card-text"><%= product.getPrice() %> $</p>
                     <!-- Thêm nút hiển thị form thêm sản phẩm -->
                     <button class="btn btn-success text-white"
                             data-product-id="<%= product.getProductID() %>"
@@ -112,7 +112,6 @@
             %>
         </ul>
     </div>
-    <!-- Thêm nút Vào chế độ quản trị viên và căn trái nút -->
     <!-- Thêm nút Vào chế độ quản trị viên và căn phải nút -->
     <div class="row justify-content-end mt-4">
         <div class="col-md-4 text-right">
