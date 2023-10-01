@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Thêm Nhân viên</title>
+    <title>Cập nhật Nhân viên</title>
     <!-- Đường dẫn đến các tệp CSS và JS của Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -27,7 +27,7 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="mt-5">Thêm Nhân viên</h1>
+    <h1 class="mt-5">Cập nhật Nhân viên</h1>
     <!-- Form nhập thông tin Nhân viên -->
     <form action="employeeControll?action=updateEmployee" method="post">
         <%
