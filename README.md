@@ -41,12 +41,7 @@ Dự án REST API này là một phần của ứng dụng quản lý thông tin
 8. **Demo**: Package này chứa các tệp demo để kiểm tra các lớp DAO.
 
 9. **WebApp**: Chứa các tệp tài nguyên liên quan đến giao diện người dùng:
-   - **index.html**: Trang chủ của ứng dụng.
-   - **product.js**: JavaScript cho quản lý sản phẩm.
-   - **style.css**: CSS cho giao diện.
-   - **thanhtoan.css**: CSS cho trang thanh toán.
-   - **thanhtoan.js**: JavaScript cho trang thanh toán.
-   - **thanhtoan.html**: Trang thanh toán.
+  
 
 ## Hướng dẫn cài đặt và chạy
 
