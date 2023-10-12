@@ -131,7 +131,10 @@ public class ProductDAO {
                     "        WHERE\n" +
                     "            ProductID = product.ProductID\n" +
                     "    );";
-            list= em.createNativeQuery(nativeQuery, ProductPricePath.class).getResultList();
+            List<Object[]> objects= em.createNativeQuery(nativeQuery, "ProductPricePath").getResultList();
+            for (Object[] object:objects) {
+                list.add(new ProductPricePath((long)object[0],(String) object[1], (double) object[2], (String) object[3]));
+            }
             transaction.commit();
 
         } catch (Exception e) {

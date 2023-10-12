@@ -1,11 +1,23 @@
 package vn.edu.iuh.fit.convert;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-@Entity
+@SqlResultSetMapping(
+        name = "ProductPricePath",
+        classes = {
+                @ConstructorResult(
+                        targetClass = ProductPricePath.class,
+                        columns = {
+                                @ColumnResult(name = "id", type = Long.class),
+                                @ColumnResult(name = "name", type = String.class),
+                                @ColumnResult(name = "path", type = String.class),
+                                @ColumnResult(name = "price", type = Double.class)
+
+                        }
+                )
+        }
+)
 public class ProductPricePath {
-    @Id
     private long productID;
     private String name;
     private double price;

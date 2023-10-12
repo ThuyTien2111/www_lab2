@@ -40,6 +40,24 @@ public class ProductController extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        try {
+            Object actObject = req.getParameter("action");
+            if (actObject != null) {
+                String action = actObject.toString();
+                if(action.equals("addOrder")){
+                    OrderModel orderModel=new OrderModel();
+                    orderModel.insertProductToOrder(req, resp);
+                    orderModel.updateCart(req, resp);
+                }
+                else if(action.equals("caclPrice")){
+                    OrderModel orderModel= new OrderModel();
+                    orderModel.calcPriceOfCart(req, resp);
+                }
+            } else {
+                resp.sendRedirect("index.jsp");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

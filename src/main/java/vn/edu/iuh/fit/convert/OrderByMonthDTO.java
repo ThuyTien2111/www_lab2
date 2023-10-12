@@ -1,11 +1,20 @@
 package vn.edu.iuh.fit.convert;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-@Entity
+@SqlResultSetMapping(
+        name = "OrderByMonthMapping",
+        classes = {
+                @ConstructorResult(
+                        targetClass = OrderByMonthDTO.class,
+                        columns = {
+                                @ColumnResult(name = "OrderMonth", type = String.class),
+                                @ColumnResult(name = "TotalOrders", type = Long.class)
+                        }
+                )
+        }
+)
 public class OrderByMonthDTO {
-    @Id
     private String orderMonth;
     private long totalOrders;
 

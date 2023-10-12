@@ -9,11 +9,9 @@ import vn.edu.iuh.fit.convert.OrderByMonthDTO;
 import vn.edu.iuh.fit.db.Connection;
 import vn.edu.iuh.fit.models.*;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class OrderDAO {
     private EntityManager em;
@@ -64,9 +62,9 @@ public class OrderDAO {
                     "FROM orders\n" +
                     "GROUP BY DATE(OrderDate)\n" +
                     "ORDER BY OrderDay;";
-            List<OrderByDateDTO> list= em.createNativeQuery(nativeQuery, OrderByDateDTO.class).getResultList();
-            for (OrderByDateDTO objects : list) {
-                map.put(objects.getOrderDay(), objects.getTotalOrders());
+            List<Object[]> list= em.createNativeQuery(nativeQuery, "OrderByDateMapping").getResultList();
+            for (Object[] objects : list) {
+                map.put(((java.sql.Date) objects[0]).toLocalDate().atStartOfDay(), (long)objects[1]);
             }
             transaction.commit();
 
@@ -87,9 +85,9 @@ public class OrderDAO {
                     "FROM orders\n" +
                     "GROUP BY OrderMonth\n" +
                     "ORDER BY OrderMonth";
-            List<OrderByMonthDTO> list= em.createNativeQuery(nativeQuery, OrderByMonthDTO.class).getResultList();
-            for (OrderByMonthDTO objects : list) {
-                map.put(objects.getOrderMonth(), objects.getTotalOrders());
+            List<Object[]> list= em.createNativeQuery(nativeQuery, "OrderByMonthMapping").getResultList();
+            for (Object[] objects : list) {
+                map.put((String) objects[0], (Long) objects[1]);
             }
             transaction.commit();
 
@@ -111,9 +109,9 @@ public class OrderDAO {
                     "INNER JOIN orders ON employee.EmployeeID = orders.EmployeeID\n" +
                     "GROUP BY employee.EmployeeID, employee.FullName\n" +
                     "ORDER BY TotalOrders DESC;";
-            List<OrderByEmployeeMonthDTO> list= em.createNativeQuery(nativeQuery, OrderByEmployeeMonthDTO.class).getResultList();
-            for (OrderByEmployeeMonthDTO objects : list) {
-                map.put(objects.getFullName(), objects.getTotalOrders());
+            List<Object[]> list= em.createNativeQuery(nativeQuery, "OrderByEmployeeMonthMapping").getResultList();
+            for (Object[] objects : list) {
+                map.put((String) objects[1],(Long) objects[2]);
             }
             transaction.commit();
 

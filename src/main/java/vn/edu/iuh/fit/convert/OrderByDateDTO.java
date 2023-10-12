@@ -3,9 +3,20 @@ package vn.edu.iuh.fit.convert;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-@Entity
+@SqlResultSetMapping(
+        name = "OrderByDateMapping",
+        classes = {
+                @ConstructorResult(
+                        targetClass = OrderByDateDTO.class,
+                        columns = {
+                                @ColumnResult(name = "OrderDay", type = LocalDateTime.class),
+                                @ColumnResult(name = "TotalOrders", type = Long.class)
+                        }
+                )
+        }
+)
+
 public class OrderByDateDTO {
-    @Id
     private LocalDateTime orderDay;
     private Long totalOrders;
 

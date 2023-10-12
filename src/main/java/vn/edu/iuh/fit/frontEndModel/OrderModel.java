@@ -24,6 +24,7 @@ public class OrderModel {
 
         orderService.addOrder(new Order(ordID, LocalDateTime.now(), new Employee(empID), new Customer(cusID)), new OrderDetail(new Order(ordID), new Product(productID), note, quantity));
 
+
     }
     public void updateCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         long ordID= Long.parseLong(request.getParameter("orderCode"));

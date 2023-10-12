@@ -68,7 +68,6 @@ public class EmployeeDAO {
     {
         EntityTransaction tr=em.getTransaction();
         tr.begin();
-
         try {
             Employee emp=em.find(Employee.class,id);
             emp.setStatus(0);
